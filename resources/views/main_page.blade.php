@@ -9,6 +9,16 @@
 @endsection
 
 @section('content')
+    @if (session('message'))
+        <div class="error_msg" style="text-align: center; color: darkolivegreen">
+            <strong>{{ session('message') }}</strong>
+        </div>
+    @endif
+    @if ($errors->has('email'))
+        <div class="error_msg" style="text-align: center; color: darkred">
+            <strong>{{ $errors->first('email') }}</strong>
+        </div>
+    @endif
     <section class="section_title">
         <div class="container">
             <div class="row">

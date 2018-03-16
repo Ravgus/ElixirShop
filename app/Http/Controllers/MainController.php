@@ -13,12 +13,11 @@ class MainController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::all();
+        $products = Product::take(5)->get();
 
         return view('main_page', [
             'products'   => $products,
             'categories' => $categories,
-            'title'      => 'Главная'
         ]);
     }
 }

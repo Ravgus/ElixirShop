@@ -10,14 +10,14 @@ use App\Category;
 class ProductController extends Controller
 {
     //
-    public function index($alias)
+    public function index($category, $alias)
     {
         $categories = Category::all();
         $category_count = [];
 
-        foreach (Category::all() as $category)
+        foreach ($categories as $category)
         {
-            $category_count[] = $category->products->count();
+            $category_count[] = $category->products()->count();
         }
 
         $product = Product::where('alias', $alias)->firstOrFail();

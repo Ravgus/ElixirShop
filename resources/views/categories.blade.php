@@ -70,5 +70,5 @@
 @endsection
 
 @section('footer')
-    @include('include.footer')
+    @include('include.small_footer')
 @endsection

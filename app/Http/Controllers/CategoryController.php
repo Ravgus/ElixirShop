@@ -29,8 +29,6 @@ class CategoryController extends Controller
             $products = $products->products()->paginate(4);
         }
 
-        //dd($categories);
-
         return view('categories', [
             'title_category' => $title_category,
             'count'      => $category_count,

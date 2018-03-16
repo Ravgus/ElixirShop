@@ -7,8 +7,9 @@
                 </div>
                 <div class="col-md-5 col-sm-9 col-xs-12">
                     <div class="search">
-                        <form name="search" method="post" action="search.php" class="search_form">
-                            <input type="text" name="query" class="search_input" placeholder="Поиск товаров">
+                        <form method="get" action="{{ route('search_show') }}" class="search_form">
+                            {{--{{ csrf_field()}}--}}
+                            <input type="text" name="query_body" class="search_input" value="{{ old('query_body') }}" placeholder="Поиск товаров">
                             <button type="submit" class="search_submit">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
@@ -20,9 +21,9 @@
                         <ul class="menu">
                             <li class="menu_item">
                                 <a href="404.php" class="menu_link menu_link_iconed">
-											<span class="menu_link-icon">
-												<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-											</span>
+                                    <span class="menu_link-icon">
+                                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                    </span>
                                     <span class="menu_link-text">Корзина</span>
                                 </a>
                             </li>
