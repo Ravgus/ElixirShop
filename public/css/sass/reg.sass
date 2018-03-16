@@ -1,0 +1,282 @@
+@import "bourbon/bourbon"
+
+$text-color: #1d1927
+$grey-color: #c4c4c4
+$back-color: #e9e9e9
+$hover-color: #f6e4b6
+
+/*--------------Adjustment------------------*/
+
+* 
+	box-sizing: border-box
+
+html
+	height: 100%
+	width: 100%
+body
+	font-family: "CleanvertisingLight", sans-serif
+	font-weight: normal
+	color: $text-color
+	background-color: $hover-color
+	background-image: url("../img/main_bg.jpg")
+	font-size: 14px
+	height: 100%
+	width: 100%
+	position: relative
+	-webkit-font-smoothing: antialised
+	overflow-x: hidden
+ul 
+	padding: 0
+	margin: 0
+	li 
+		list-style: none
+p 
+	padding: 0
+	margin: 0
+    
+.hidden
+	display: none 
+.wrapper
+	min-height: 100%
+	position: relative
+
+/*-----------------------header---------------------*/
+
+
+.header_content
+	background-color: $text-color
+	background-image: url("../img/content_bg.jpg")
+	background-position: center right
+	background-repeat: repeat-x
+	color: #fff
+	margin-bottom: 20px
+	.logo
+		font-family: "SegoePrintRegular", sans-serif
+		font-size: 48px 
+		line-height: 45px
+		color: #fff
+		&:hover 
+			text-decoration: none
+
+.search 
+	position: relative
+	.search_input
+		padding: 10px 40px 10px 35px
+		background-color: rgba(255,255,255,.2)
+		border: 0 none
+		font-size: 18px
+		border-radius: 22px
+		width: 100%
+		outline: none
+		&::-webkit-input-placeholder
+			color: #fff
+		&:-moz-placeholder
+			color: #fff
+		&::-moz-placeholder 
+			color: #fff
+		&:-ms-input-placegolder
+			color: #fff
+	.search_submit
+		border: none
+		display: block
+		background: transparent
+		position: absolute
+		font-size: 18px
+		right: 17px
+		top: 50%
+		padding: 0
+		margin-top: -13px
+		&:hover 
+			color: $hover-color
+.menu_item
+	display: inline-block
+
+/*------------------------menu---------------------*/
+.menu 
+	text-align: justify
+	&:after
+		content: ""
+		display: inline-block
+		width: 100%
+		height: 0
+.menu_link 
+	display: block 
+	padding: 10px
+	&:hover
+		.menu_link-text
+			color: $hover-color
+		.menu_link-icon
+			color: $hover-color
+
+.menu_link_iconed
+	&:hover
+		border: 1px solid $hover-color
+
+.menu_link_iconed
+	padding-right: 20px
+	padding-left: 50px
+	position: relative
+	border: 1px solid #fff
+	border-radius: 22px
+.menu_link-text
+	color: #fff
+	font-size: 18px
+.menu_link-icon
+	position: absolute
+	color: #fff 
+	font-size: 18px
+	left: 15px
+	top: 50%
+	margin-top: -14px
+	bottom: 0
+	width: 30px
+.menu_link_icon_pic
+	vertical-align: middle
+.header_topline
+	padding-top: 20px
+	border-bottom: 1px solid rgba(#fff, .1)
+
+/*---------------nav----------------------*/
+
+.nav_list
+	text-align: justify
+	margin-top: 20px
+	&:after
+		content: ""
+		width: 100%
+		height: 0
+		display: inline-block
+.nav_item
+	display: inline-block
+.nav_title
+	color: #fff 
+	font-size: 20px
+	display: inline-block
+	vertical-align: middle
+.nav_icon
+	color: #fff 
+	font-size: 30px
+	padding-right: 10px
+	display: inline-block
+	vertical-align: middle
+.nav_link
+	&:hover
+		.nav_title
+			color: $hover-color
+		.nav_icon
+			color: $hover-color
+
+/*--------------------------registration-------------------*/
+
+.reg_wrap
+	text-align: center
+.title_reg
+	font-family: "AdineKirnbergRegular", sans-serif
+	font-size: 60px
+	line-height: 70px
+	font-weight: normal
+	margin-bottom: 20px
+	padding: 0
+	text-decoration: underline
+.vk_reg
+	width: 50%
+	color: #fff
+	background-color: #dac49c
+	font-size: 22px
+	padding: 10px 0
+	position: relative
+	border-radius: 10px 0 0 10px 
+	float: left
+	i 
+		font-size: 30px
+		position: absolute
+		line-height: 20px
+		top: 50%
+		margin-top: -10px
+		margin-left: -10px
+		left: 20px
+	&:hover
+		background-color: #507299
+		color: #fff 
+		text-decoration: none
+
+.gg_reg
+	width: 50%
+	color: #fff
+	background-color: #beaa84
+	font-size: 22px
+	padding: 10px 0
+	position: relative
+	border-radius: 0 10px 10px 0
+	float: left
+	margin-bottom: 10px
+	i 
+		font-size: 30px
+		position: absolute
+		line-height: 20px
+		top: 50%
+		margin-top: -10px
+		left: 20px
+	&:hover
+		background-color: #db4437
+		color: #fff 
+		text-decoration: none
+.or 
+	font-size: 18px
+	color: #605e5c
+.field
+	background-color: #fff 
+	color: $text-color
+	border-radius: 10px
+	box-shadow: 0 0 10px rgba(0,0,0,0.1)
+	border: none
+	outline: none 
+	font-size: 20px
+	padding: 10px 0
+	text-indent: 20px
+	width: 100%
+	margin-top: 15px
+.pass_r
+	float: left
+	margin-right: 2%
+	width: 48%
+.pass_l
+	float: left
+	margin-left: 2%
+	width: 48%
+	margin-bottom: 10px
+.text_link
+	font-size: 18px
+	color: #605e5c
+	margin-bottom: 10px
+	a 
+		text-decoration: underline
+		color: $text-color
+		&:hover 
+			text-decoration: none
+.submit 
+	border: none
+	outline: none 
+	background-color: rgba($text-color, .8)
+	color: #fff
+	font-size: 24px
+	padding: 10px 50px
+	border-radius: 30px
+	margin-top: 10px
+	margin-bottom: 30px
+	&:hover
+		background-color: rgba($text-color, 1)
+.last
+	margin-top: 10px
+	margin-bottom: 40px
+
+
+
+
+
+	
+
+
+
+
+

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://ElixirShop'),
+    'url' => env('APP_URL', 'http://elixirshop.com'),
 
     /*
     |--------------------------------------------------------------------------

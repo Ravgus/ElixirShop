@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', ['uses' => 'MainController@index', 'as' => 'main']);
+Route::get('/products/{alias}', ['uses' => 'ProductController@index', 'as' => 'product']);
+Route::get('/category/{alias}', ['uses' => 'CategoryController@index', 'as' => 'category']);
+
+Route::get('/home', 'HomeController@index')->name('home');
