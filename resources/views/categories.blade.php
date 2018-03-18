@@ -8,6 +8,12 @@
     @include('include.header')
 @endsection
 
+@section('breadcrumbs')
+    {{--{{ Breadcrumbs::render('category', $alias, $current_category_name) }}--}}
+    {{ Breadcrumbs::render('category', $current_category) }}
+
+@endsection
+
 @section('content')
     <section class="section-title">
         <div class="container">

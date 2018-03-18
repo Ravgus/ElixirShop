@@ -21,11 +21,13 @@ class ProductController extends Controller
         }
 
         $product = Product::where('alias', $alias)->firstOrFail();
+        $current_category = collect(['name' => $product->category->name, 'alias' => $product->category->alias]);
 
         return view('product', [
             'product'    => $product,
             'count'      => $category_count,
-            'categories' => $categories
+            'categories' => $categories,
+            'current_category' => $current_category,
         ]);
     }
 }

@@ -8,6 +8,10 @@
     @include('include.header')
 @endsection
 
+@section('breadcrumbs')
+
+@endsection
+
 @section('content')
     @if (session('message'))
         <div class="error_msg" style="text-align: center; color: darkolivegreen">

@@ -28,7 +28,7 @@
                                 </a>
                             </li>
                                 @auth
-                                    <li class="menu_item">
+                                    {{--<li class="menu_item">
                                         <a class="menu_link" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
@@ -38,6 +38,11 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
+                                    </li>--}}
+                                    <li class="menu_item">
+                                        <a href="{{ route('home') }}" class="menu_link">
+                                            <span class="menu_link-text">Личный кабинет</span>
+                                        </a>
                                     </li>
                                 @else
                                     <li class="menu_item">

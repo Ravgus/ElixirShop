@@ -47,6 +47,7 @@
 <body>
 <div class="wrapper">
     @yield('header')
+    @yield('breadcrumbs')
     @yield('content')
 <div class="empty"></div>
 </div>

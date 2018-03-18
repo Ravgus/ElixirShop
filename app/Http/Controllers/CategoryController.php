@@ -23,9 +23,11 @@ class CategoryController extends Controller
         if($alias === 'all') {
             $products = Product::paginate(4);
             $title_category = 'Все товары';
+            $current_category = collect(['name' => 'Все', 'alias' => $alias]);
         } else {
             $products = Category::where('alias', $alias)->firstOrFail();
             $title_category = $products->name;
+            $current_category = collect(['name' => $title_category, 'alias' => $alias]);
             $products = $products->products()->paginate(4);
         }
 
@@ -34,6 +36,7 @@ class CategoryController extends Controller
             'count'      => $category_count,
             'categories' => $categories,
             'products'   => $products,
+            'current_category' => $current_category,
         ]);
     }
 }

@@ -8,6 +8,10 @@
     @include('include.header')
 @endsection
 
+@section('breadcrumbs')
+
+@endsection
+
 @section('content')
     <div class="search_answer">
         {{ $empty }}
