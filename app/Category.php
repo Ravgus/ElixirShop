@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -23,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     //
+    use Searchable;
+
     protected $fillable = ['name', 'alias'];
 
     public function products()
