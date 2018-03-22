@@ -61,10 +61,12 @@
                                 </div>
                                 <div class="content_price"><strong>Цена:</strong>{{ $product->price }} грн</div>
                                 <div class="buy_wrap">
-                                    <form action="basket.php" method="post">
+                                    <form id="add_product" method="POST">
+                                        {{ csrf_field() }}
                                         <input type="text" name="count" class="count_input" placeholder="Количество">
-                                        <input type="hidden" name="title" value='{{ $product->alias }}'>
-                                        <input type="hidden" name="price" value='{{ $product->price }}'>
+                                        <input type="hidden" name="id" value='{{ $product->id }}'>
+                                        <input type="hidden" name="title" value='{{ $product->name }}'>
+                                        <input type="hidden" name="alias" value='{{ $product->alias }}'>
                                         <button name="submit" class="content_buy">В Корзину</button>
                                     </form>
                                 </div>

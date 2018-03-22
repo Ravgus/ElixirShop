@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class ArticlesControllers extends Controller
 {
     //
-    public function about()
+    public function about(Request $request)
     {
-
+        dd($request->session()->all());
     }
 
     public function contacts()

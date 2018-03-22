@@ -20,7 +20,7 @@
                     <div class="header_menu">
                         <ul class="menu">
                             <li class="menu_item">
-                                <a href="404.php" class="menu_link menu_link_iconed">
+                                <a href="{{ route('showBasket') }}" class="menu_link menu_link_iconed">
                                     <span class="menu_link-icon">
                                         <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                     </span>

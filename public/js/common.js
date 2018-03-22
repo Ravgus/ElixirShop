@@ -127,7 +127,7 @@ $(".slider_products").slick({
 
 	//Аякс отправка форм
 	//Документация: http://api.jquery.com/jquery.ajax/
-	$("#contacts_form").submit(function(e) {
+	/*$("#contacts_form").submit(function(e) {
 		var ths = $(this);
 		e.preventDefault;
 		$.ajax({
@@ -143,7 +143,28 @@ $(".slider_products").slick({
 			}, 1000);
 		});
 		return false;
-	});
+	});*/
+
+    $(document).ready(function(){
+        $('#add_product').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/product/add',
+                data: $('#add_product').serialize(),
+                success: function(result){
+                    console.log("success", result);
+                    var json = JSON.parse(result);
+                    alert('Добавлен товар '+json['name']+' в количестве '+json['count']+' штук');
+                },
+                error: function() {
+                    console.log("error", arguments);
+                    alert('Ошибка при добавлении товара');
+                }
+            });
+        });
+    });
 	
 });
 
@@ -189,3 +210,7 @@ if(($(window).width()>=1366) && ($(window).height()>=768)){
   $.smartscroll(options);
 
 }
+
+
+
+

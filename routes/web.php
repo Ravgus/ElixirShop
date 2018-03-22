@@ -31,8 +31,16 @@ Route::get('/search', ['uses' => 'SearchController@index', 'as' => 'search_show'
 
 Route::post('/subscribe', ['uses' => 'SubscribeController@index', 'as' => 'subscribe']);
 
+/*Log social*/
+
 Route::get('auth/{driver}', ['as' => 'socialAuth', 'uses' => 'Auth\SocialController@redirectToProvider']);
 Route::get('auth/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => 'Auth\SocialController@handleProviderCallback']);
+
+Route::post('/product/add', ['uses' => 'BasketController@addProduct', 'as' => 'addProduct']);
+
+
+Route::get('/basket', ['uses' => 'BasketController@showBasket', 'as' => 'showBasket']);
+Route::post('/billing', ['uses' => 'BasketController@showBilling', 'as' => 'showBilling']);
 
 Auth::routes();
 
