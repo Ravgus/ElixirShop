@@ -15,12 +15,12 @@
                 <div class="reg_wrap">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div class="title_reg">Регистрация</div>
-                        <a href="" class="vk_reg">
-                            <i class="fa fa-vk" aria-hidden="true"></i>
-                            <span class="hidden-xs">Войти через Vkontakte</span>
-                            <span class="hidden-lg hidden-md hidden-sm">Vkontakte</span>
+                        <a href="{{ route('socialAuth', ['driver' => 'facebook']) }}" class="vk_reg">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <span class="hidden-xs">Войти через Facebook</span>
+                            <span class="hidden-lg hidden-md hidden-sm">Facebook</span>
                         </a>
-                        <a href="" class="gg_reg">
+                        <a href="{{ route('socialAuth', ['driver' => 'google']) }}" class="gg_reg">
                             <i class="fa fa-google-plus-official" aria-hidden="true"></i>
                             <span class="hidden-xs">Войти через Google+</span>
                             <span class="hidden-lg hidden-md hidden-sm">Google+</span>

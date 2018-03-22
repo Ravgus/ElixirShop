@@ -31,6 +31,9 @@ Route::get('/search', ['uses' => 'SearchController@index', 'as' => 'search_show'
 
 Route::post('/subscribe', ['uses' => 'SubscribeController@index', 'as' => 'subscribe']);
 
+Route::get('auth/{driver}', ['as' => 'socialAuth', 'uses' => 'Auth\SocialController@redirectToProvider']);
+Route::get('auth/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => 'Auth\SocialController@handleProviderCallback']);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

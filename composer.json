@@ -13,7 +13,9 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/scout": "4.0.x-dev",
-        "laravel/tinker": "^1.0"
+        "laravel/socialite": "3.0.x-dev",
+        "laravel/tinker": "^1.0",
+        "laravelcollective/html": "5.6.x-dev"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
