@@ -27,15 +27,6 @@
                                     </span>
                                     <span class="menu_link-text">Корзина</span>
                                 </a>
-                                {{--<div class="menu_link menu_link_iconed">
-                                    <form method="POST" action="{{ route('showBasket') }}">
-                                        {{ csrf_field() }}
-                                        <span class="menu_link-icon">
-                                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                        </span>
-                                        <button class="menu_link-text">Корзина</button>
-                                    </form>
-                                </div>--}}
                             </li>
                             @auth
                                 {{--<li class="menu_item">
@@ -50,9 +41,18 @@
                                     </form>
                                 </li>--}}
                                 <li class="menu_item">
-                                    <a href="{{ route('home') }}" class="menu_link">
+                                    <a href="{{ route('main') }}" class="menu_link">
                                         <span class="menu_link-text">Личный кабинет</span>
                                     </a>
+                                </li>
+                                <li class="menu_item">
+                                    <a href="{{ route('logout') }}" class="menu_link">
+                                        <span class="menu_link-text">Выйти</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
+                                        @csrf
+                                    </form>
                                 </li>
                             @else
                                 <li class="menu_item">
@@ -66,37 +66,5 @@
                 </div>
             </div>
         </div>
-        @if(!isset($auth))
-            <div class="row">
-                <div class="col-md-9">
-                    <nav class="nav">
-                        <ul class="nav_list">
-                            <li class="nav_item">
-                                <a href="{{ route('category', ['alias' => 'all']) }}" class="nav_link">
-                                            <span class="nav_icon">
-                                                <i class="fa fa-flask" aria-hidden="true"></i>
-                                            </span>
-                                    <span class="nav_title">Все товары</span>
-                                </a>
-                            </li>
-
-                            @foreach($categories as $category)
-
-                                <li class="nav_item">
-                                    <a href="{{ route('category', ['alias' => $category->alias]) }}" class="nav_link">
-                                            <span class="nav_icon">
-                                                <i class="fa fa-flask" aria-hidden="true"></i>
-                                            </span>
-                                        <span class="nav_title">{{ $category->name }}</span>
-                                    </a>
-                                </li>
-
-                            @endforeach
-
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        @endif
     </div>
 </header>

@@ -159,8 +159,74 @@ $(".slider_products").slick({
                     alert('Добавлен товар '+json['name']+' в количестве '+json['count']+' штук');
                 },
                 error: function() {
-                    console.log("error", arguments);
-                    alert('Ошибка при добавлении товара');
+                	if(arguments[0]['status'] == 422) {
+                        alert('Выберите корректное число данного товара');
+					} else {
+                        console.log("error", arguments);
+                        alert('Ошибка при добавлении товара');
+                    }
+                }
+            });
+        });
+    });
+
+    $(document).ready(function(){
+        $('#add_to_wishlist').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/wishlist/add',
+                data: $('#add_to_wishlist').serialize(),
+                success: function(result){
+                    console.log("success", result);
+                    if(result === "success")
+                        alert('Добавлено в список желаний');
+                    else if(result === "already")
+                        alert('Этот товар уже есть в вашем списке желаний');
+                },
+                error: function() {
+                	console.log("error", arguments);
+                	alert('Ошибка при добавлении товара в список желаний');
+                }
+            });
+        });
+    });
+
+    $(document).ready(function(){
+        $('#make_billing').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/billing/make',
+                data: $('#make_billing').serialize(),
+                success: function(result){
+                    console.log("success", result);
+                    window.location.replace("http://elixirshop.local.com/");
+                },
+                error: function(data) {
+                    var errors = data.responseJSON;
+                    errors = errors['errors'];
+
+                    $("#error_firstname").html('');
+                    $("#error_secondname").html('');
+                    $("#error_email").html('');
+                    $("#error_phone").html('');
+                    $("#error_address").html('');
+
+                    if("firstname" in errors)
+                        $("#error_firstname").html(errors['firstname'][0]);
+                    if("secondname" in errors)
+                        $("#error_secondname").html(errors['secondname'][0]);
+                    if("email" in errors)
+                        $("#error_email").html(errors['email'][0]);
+                    if("phone" in errors)
+                        $("#error_phone").html(errors['phone'][0]);
+                    if("address" in errors)
+                        $("#error_address").html(errors['address'][0]);
+
+                    console.log("error", errors);
                 }
             });
         });
