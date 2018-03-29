@@ -24,6 +24,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
+ * @property array $settings
+ * @property string|null $phone
+ * @property string|null $address
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Order[] $orders
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSettings($value)
  */
 class User extends Authenticatable
 {
@@ -35,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'settings'
+        'name', 'email', 'password', 'settings', 'phone', 'address'
     ];
 
     /**
@@ -50,4 +57,9 @@ class User extends Authenticatable
     protected $casts = [
         'settings' => 'array'
     ];
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }

@@ -9,6 +9,7 @@ class ArticlesControllers extends Controller
     //
     public function about(Request $request)
     {
+        dump($request->cookie());
         dd($request->session()->all());
     }
 

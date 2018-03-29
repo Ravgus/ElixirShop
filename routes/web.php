@@ -36,12 +36,23 @@ Route::post('/subscribe', ['uses' => 'SubscribeController@index', 'as' => 'subsc
 Route::get('auth/{driver}', ['as' => 'socialAuth', 'uses' => 'Auth\SocialController@redirectToProvider']);
 Route::get('auth/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => 'Auth\SocialController@handleProviderCallback']);
 
+/**/
+
 Route::post('/product/add', ['uses' => 'BasketController@addProduct', 'as' => 'addProduct']);
 
-
 Route::get('/basket', ['uses' => 'BasketController@showBasket', 'as' => 'showBasket']);
+/*Route::post('/basket', ['uses' => 'BasketController@showBasket', 'as' => 'showBasket']);*/
+
 Route::post('/billing', ['uses' => 'BasketController@showBilling', 'as' => 'showBilling']);
+Route::post('/billing/make', ['uses' => 'BasketController@makeBilling', 'as' => 'makeBilling']);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::namespace('Cabinet')->group(function () {
+    Route::get('/home', ['uses' => 'UserCabinetController@index', 'as' => 'home']);
+    Route::get('/wishlist', ['uses' => 'UserCabinetController@showWishList', 'as' => 'showWishList']);
+    Route::get('/history', ['uses' => 'UserCabinetController@showHistory', 'as' => 'showHistory']);
+    /*Route::get('/information', ['uses' => 'UserCabinetController@information', 'as' => 'showInformation']);*/
+
+    Route::post('/wishlist/add', ['uses' => 'UserCabinetController@addToWishList', 'as' => 'addToWishList']);
+});

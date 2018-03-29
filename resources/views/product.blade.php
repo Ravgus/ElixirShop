@@ -69,6 +69,13 @@
                                         <input type="hidden" name="alias" value='{{ $product->alias }}'>
                                         <button name="submit" class="content_buy">В Корзину</button>
                                     </form>
+                                    @auth
+                                        <form id="add_to_wishlist" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="id" value='{{ $product->id }}'>
+                                            <button name="submit" style="background-color: rgba(29, 25, 39, 0.8);color: #d2b05e;font-size: 28px;outline: none;border: none;border-radius: 10px 10px 10px 10px;" class="fa fa-star"></button>
+                                        </form>
+                                    @endauth
                                 </div>
                             </div>
                         </div>

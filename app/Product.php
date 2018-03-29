@@ -43,4 +43,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function wish()
+    {
+        return $this->hasOne('App\Wish');
+    }
 }
