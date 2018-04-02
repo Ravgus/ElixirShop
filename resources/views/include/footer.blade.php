@@ -15,7 +15,7 @@
                 <ul class="map">
                     <li>Мой Эликсир</li>
                     <li><a href="{{ route('home') }}">Мой кабинет</a></li>
-                    <li><a href="{{ route('home') }}">Мои заказы</a></li>
+                    <li><a href="{{ route('showHistory') }}">Мои заказы</a></li>
                     <li><a href="{{ route('career') }}">Карьера в компании</a></li>
                     {{--<li><a href="{{ route('') }}">Дисконтная карта</a></li>
                     <li><a href="{{ route('') }}">Расширеный сервис</a></li>--}}

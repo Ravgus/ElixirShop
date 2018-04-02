@@ -73,8 +73,9 @@
         </div>
         <div class="col-lg-9 col-lg-offset-3">
             <div class="link_wrap_info">
-                <a class="link_info" href="">Редактировать личные данные</a>
-                <a class="link_info" href="">Изменить пароль</a>
+                <a class="link_info" href="{{ route('changeInformation') }}">Редактировать личные данные</a>
+                <a class="link_info" href="{{ route('changeEmail') }}">Изменить e-mail</a>
+                <a class="link_info" href="{{ route('changePassword') }}">Изменить пароль</a>
             </div>
         </div>
     </section>

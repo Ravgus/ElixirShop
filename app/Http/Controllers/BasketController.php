@@ -84,11 +84,11 @@ class BasketController extends Controller
     public function makeBilling(Request $request)
     {
         $this->validate($request, [
-            'firstname' => 'required|string',
-            'secondname' => 'required|string',
-            'email' => 'required|email',
-            'phone' => 'required|integer',
-            'address' => 'required|string',
+            'firstname' => 'required|string|max:255',
+            'secondname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required||string|max:32',
+            'address' => 'required|string|max:255',
         ]);
 
         $data = $request->session()->all();

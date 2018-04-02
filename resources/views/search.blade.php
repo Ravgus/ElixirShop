@@ -14,6 +14,15 @@
 
 @section('content')
     <div class="search_answer">
+        {{--<section class="section_title">
+            <div class="container">
+                <div class="row">
+                    <h1 class="title">
+                        Результаты поиска
+                    </h1>
+                </div>
+            </div>
+        </section>--}}
         {{ $empty }}
         @if(empty($empty))
             <ol type="1">

@@ -15,10 +15,10 @@ class ArticlesControllers extends Controller
 
     public function contacts()
     {
-
+        dd(\Hash::make('123456'));
     }
 
-    public function partnership()
+    public function partnership(Request $request)
     {
 
     }

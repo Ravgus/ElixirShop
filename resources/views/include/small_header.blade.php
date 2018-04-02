@@ -41,7 +41,7 @@
                                     </form>
                                 </li>--}}
                                 <li class="menu_item">
-                                    <a href="{{ route('main') }}" class="menu_link">
+                                    <a href="{{ route('home') }}" class="menu_link">
                                         <span class="menu_link-text">Личный кабинет</span>
                                     </a>
                                 </li>

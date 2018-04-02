@@ -55,4 +55,8 @@ Route::namespace('Cabinet')->group(function () {
     /*Route::get('/information', ['uses' => 'UserCabinetController@information', 'as' => 'showInformation']);*/
 
     Route::post('/wishlist/add', ['uses' => 'UserCabinetController@addToWishList', 'as' => 'addToWishList']);
+
+    Route::match(['get', 'post'], '/change/information', ['uses' => 'UserCabinetController@changeInformation', 'as' => 'changeInformation']);
+    Route::match(['get', 'post'], '/change/email', ['uses' => 'UserCabinetController@changeEmail', 'as' => 'changeEmail']);
+    Route::match(['get', 'post'], '/change/password', ['uses' => 'UserCabinetController@changePassword', 'as' => 'changePassword']);
 });
