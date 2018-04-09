@@ -26,7 +26,7 @@
                             {{ csrf_field() }}
 
                             <div class="form_wrap">
-                                <input id="firstname" type="text" class="field" name="firstname" value="{{ old('firstname') }}" placeholder="Введите ваше имя" autofocus required>
+                                <input id="firstname" type="text" class="field" name="firstname" value="@if(old('firstname')){{ old('firstname') }}@else{{ $user->name }}@endif" placeholder="Введите ваше имя" autofocus required>
 
                                     <span id="error_firstname" class="error_msg">
                                     </span>
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="form_wrap">
-                                <input id="secondname" type="text" class="field" name="secondname" value="{{ old('secondname') }}" placeholder="Введите вашу фамилию" required>
+                                <input id="secondname" type="text" class="field" name="secondname" value="@if(old('secondname')){{ old('secondname') }}@endif" placeholder="Введите вашу фамилию" required>
 
                                     <span id="error_secondname" class="error_msg">
                                     </span>
@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="form_wrap">
-                                <input id="email" type="email" class="field" name="email" value="{{ old('email') }}" placeholder="Введите ваш e-mail" required>
+                                <input id="email" type="email" class="field" name="email" value="@if(old('email')){{ old('email') }}@else{{ $user->email }}@endif" placeholder="Введите ваш e-mail" required>
 
                                     <span id="error_email" class="error_msg">
                                     </span>
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="form_wrap">
-                                <input id="phone" type="text" class="field" name="phone" value="{{ old('phone') }}" placeholder="Введите ваш телефон" required>
+                                <input id="phone" type="text" class="field" name="phone" value="@if(old('phone')){{ old('phone') }}@else{{ $user->phone }}@endif" placeholder="Введите ваш телефон" required>
 
                                     <span id="error_phone" class="error_msg">
                                     </span>
@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="form_wrap">
-                                <input id="address" type="text" class="field" name="address" value="{{ old('address') }}" placeholder="Введите адресс доставки" required>
+                                <input id="address" type="text" class="field" name="address" value="@if(old('address')){{ old('address') }}@else{{ $user->address }}@endif" placeholder="Введите адресс доставки" required>
 
                                     <span id="error_address" class="error_msg">
                                     </span>

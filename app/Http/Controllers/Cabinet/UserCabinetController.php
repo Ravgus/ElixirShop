@@ -25,32 +25,37 @@ class UserCabinetController extends Controller
         return view('cabinet.main');
     }
 
-    public function addToWishList(Request $request)
+    public function wishList(Request $request)
     {
-        if(Wish::where('product_id', $request->id)->first() != null) {
-            return 'already';
+        if ($request->isMethod('get')) {
+
+            $empty = '';
+            $wishes = Wish::where('user_id', Auth::id())->with('product')->get();//paginate(5)
+
+            if($wishes->isEmpty())
+                $empty = 'Ваш список пуст';
+
+            return view('cabinet.wishlist', [
+                'wishes' => $wishes,
+                'empty'  => $empty,
+            ]);
+
+        } elseif ($request->isMethod('post')) {
+
+            if(Wish::where('product_id', $request->id)->first() != null) {
+                return 'already';
+            }
+
+            $wish = new Wish();
+            $wish->product_id = $request->id;
+            $wish->user_id = Auth::id();
+            $wish->save();
+
+            return 'success';
+
         }
 
-        $wish = new Wish();
-        $wish->product_id = $request->id;
-        $wish->user_id = Auth::id();
-        $wish->save();
-
-        return 'success';
-    }
-
-    public function showWishList()
-    {
-        $empty = '';
-        $wishes = Wish::where('user_id', Auth::id())->with('product')->get()/*paginate(5)*/;
-
-        if($wishes->isEmpty())
-            $empty = 'Ваш список пуст';
-
-        return view('cabinet.wishlist', [
-            'wishes' => $wishes,
-            'empty'  => $empty,
-        ]);
+        return 'Unknown action';
     }
 
     public function showHistory()

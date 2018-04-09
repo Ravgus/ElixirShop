@@ -176,7 +176,7 @@ $(".slider_products").slick({
 
             $.ajax({
                 type: 'POST',
-                url: '/wishlist/add',
+                url: '/wishlist',
                 data: $('#add_to_wishlist').serialize(),
                 success: function(result){
                     console.log("success", result);

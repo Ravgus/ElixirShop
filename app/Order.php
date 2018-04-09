@@ -26,7 +26,8 @@ class Order extends Model
 {
     //
     protected $casts = [
-        'order' => 'array'
+        'order' => 'array',
+        'user-data' => 'array',
     ];
 
     public function user()

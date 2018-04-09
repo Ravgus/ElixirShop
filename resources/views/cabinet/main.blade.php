@@ -18,7 +18,7 @@
             <aside class="sidebar">
                 <ul class="categories">
                     <li class="categories_item">
-                        <a href="{{ route('showWishList') }}" class="categories_link">
+                        <a href="{{ route('wishList') }}" class="categories_link">
                             <span class="categories_icon"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
                             <span class="categories_text">Список желаний</span>
                         </a>

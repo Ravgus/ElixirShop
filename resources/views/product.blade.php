@@ -32,8 +32,10 @@
                             @foreach ($categories as $category)
 
                                 <li class="categories_item">
-                                    <a href="{{ route('category', ['alias' => $category->alias]) }}" class="categories_link">
-                                        <span class="categories_icon"><i class="fa fa-flask" aria-hidden="true"></i></span>
+                                    <a href="{{ route('category', ['alias' => $category->alias]) }}"
+                                       class="categories_link">
+                                        <span class="categories_icon"><i class="fa fa-flask"
+                                                                         aria-hidden="true"></i></span>
                                         <span class="categories_text">{{ $category->name }}</span>
                                     </a>
                                     <div class="categories_amount">{{ $count[$loop->index] }}</div>
@@ -45,10 +47,10 @@
                         </ul>
                     </aside>
                 </div>
-                <div class="col-lg-1"><img src="{{ asset('img/border_v.png') }}" alt="" class="border_v hidden-xs hidden-sm hidden-md"></div>
+                <div class="col-lg-1"><img src="{{ asset('img/border_v.png') }}" alt=""
+                                           class="border_v hidden-xs hidden-sm hidden-md"></div>
                 <div class="col-lg-8 col-md-8">
                     <main class="content">
-
                         <div class="content_wrap">
                             <div class="content_title">{{ $product->name }}</div>
                             <aside class="content_img">
@@ -73,13 +75,19 @@
                                         <form id="add_to_wishlist" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="id" value='{{ $product->id }}'>
-                                            <button name="submit" style="background-color: rgba(29, 25, 39, 0.8);color: #d2b05e;font-size: 28px;outline: none;border: none;border-radius: 10px 10px 10px 10px;" class="fa fa-star"></button>
+                                            <button name="submit" style="
+                                            background-color: rgba(29, 25, 39, 0.8);
+                                            color: #d2b05e;
+                                            font-size: 28px;
+                                            outline: none;
+                                            border: none;
+                                            border-radius: 10px 10px 10px 10px;"
+                                                    class="fa fa-star"></button>
                                         </form>
                                     @endauth
                                 </div>
                             </div>
                         </div>
-
                     </main>
                 </div>
             </div>

@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-03-29 16:55:55.
+    * Generated on 2018-04-09 15:52:50.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -40,8 +40,6 @@ namespace PHPSTORM_META {
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'Laravel\Scout\EngineManager' => \Laravel\Scout\EngineManager::class,
-        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
-        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
@@ -83,6 +81,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
+        'command.view.cache' => \Illuminate\Foundation\Console\ViewCacheCommand::class,
         'command.view.clear' => \Illuminate\Foundation\Console\ViewClearCommand::class,
         'command.app.name' => \Illuminate\Foundation\Console\AppNameCommand::class,
         'command.auth.make' => \Illuminate\Auth\Console\AuthMakeCommand::class,
@@ -146,6 +145,8 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
+        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
@@ -179,8 +180,6 @@ namespace PHPSTORM_META {
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'Laravel\Scout\EngineManager' => \Laravel\Scout\EngineManager::class,
-        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
-        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
@@ -222,6 +221,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
+        'command.view.cache' => \Illuminate\Foundation\Console\ViewCacheCommand::class,
         'command.view.clear' => \Illuminate\Foundation\Console\ViewClearCommand::class,
         'command.app.name' => \Illuminate\Foundation\Console\AppNameCommand::class,
         'command.auth.make' => \Illuminate\Auth\Console\AuthMakeCommand::class,
@@ -285,6 +285,8 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
+        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
@@ -318,8 +320,6 @@ namespace PHPSTORM_META {
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'Laravel\Scout\EngineManager' => \Laravel\Scout\EngineManager::class,
-        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
-        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
@@ -361,6 +361,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
+        'command.view.cache' => \Illuminate\Foundation\Console\ViewCacheCommand::class,
         'command.view.clear' => \Illuminate\Foundation\Console\ViewClearCommand::class,
         'command.app.name' => \Illuminate\Foundation\Console\AppNameCommand::class,
         'command.auth.make' => \Illuminate\Auth\Console\AuthMakeCommand::class,
@@ -424,6 +425,8 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
+        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
     ]));
     override(\App::make(0), map([
         '' => '@',
@@ -457,8 +460,6 @@ namespace PHPSTORM_META {
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'Laravel\Scout\EngineManager' => \Laravel\Scout\EngineManager::class,
-        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
-        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
@@ -500,6 +501,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
+        'command.view.cache' => \Illuminate\Foundation\Console\ViewCacheCommand::class,
         'command.view.clear' => \Illuminate\Foundation\Console\ViewClearCommand::class,
         'command.app.name' => \Illuminate\Foundation\Console\AppNameCommand::class,
         'command.auth.make' => \Illuminate\Auth\Console\AuthMakeCommand::class,
@@ -563,6 +565,8 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
+        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
@@ -596,8 +600,6 @@ namespace PHPSTORM_META {
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'Laravel\Scout\EngineManager' => \Laravel\Scout\EngineManager::class,
-        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
-        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
@@ -639,6 +641,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
+        'command.view.cache' => \Illuminate\Foundation\Console\ViewCacheCommand::class,
         'command.view.clear' => \Illuminate\Foundation\Console\ViewClearCommand::class,
         'command.app.name' => \Illuminate\Foundation\Console\AppNameCommand::class,
         'command.auth.make' => \Illuminate\Auth\Console\AuthMakeCommand::class,
@@ -702,6 +705,8 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
+        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
     ]));
     override(\app(0), map([
         '' => '@',
@@ -735,8 +740,6 @@ namespace PHPSTORM_META {
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'Laravel\Scout\EngineManager' => \Laravel\Scout\EngineManager::class,
-        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
-        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
@@ -778,6 +781,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
+        'command.view.cache' => \Illuminate\Foundation\Console\ViewCacheCommand::class,
         'command.view.clear' => \Illuminate\Foundation\Console\ViewClearCommand::class,
         'command.app.name' => \Illuminate\Foundation\Console\AppNameCommand::class,
         'command.auth.make' => \Illuminate\Auth\Console\AuthMakeCommand::class,
@@ -841,6 +845,8 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
+        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
     ]));
     override(\resolve(0), map([
         '' => '@',
@@ -874,8 +880,6 @@ namespace PHPSTORM_META {
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'Laravel\Scout\EngineManager' => \Laravel\Scout\EngineManager::class,
-        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
-        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
@@ -917,6 +921,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'command.storage.link' => \Illuminate\Foundation\Console\StorageLinkCommand::class,
         'command.up' => \Illuminate\Foundation\Console\UpCommand::class,
+        'command.view.cache' => \Illuminate\Foundation\Console\ViewCacheCommand::class,
         'command.view.clear' => \Illuminate\Foundation\Console\ViewClearCommand::class,
         'command.app.name' => \Illuminate\Foundation\Console\AppNameCommand::class,
         'command.auth.make' => \Illuminate\Auth\Console\AuthMakeCommand::class,
@@ -980,6 +985,8 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
+        'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
     ]));
 
     override(\Illuminate\Support\Arr::add(0), type(0));

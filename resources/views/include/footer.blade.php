@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="footer_copyright">
-                г.Херсон, ул. Залаегерсег 18, ТРЦ «Фабрика» © Elixir 2017
+                г.Херсон, ул. Залаегерсег 18, ТРЦ «Фабрика» © Elixir 2017-2018
             </div>
         </div>
     </div>

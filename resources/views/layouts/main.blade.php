@@ -32,17 +32,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('libs/slick-1.6.0/slick/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('libs/slick-1.6.0/slick/slick-theme.css') }}">
 
-    <script src="{{ asset('libs/jquery/jquery-1.11.2.min.js') }}"></script>
-    <script src="{{ asset('libs/modernizr/modernizr.js') }}"></script>
-    <script src="{{ asset('libs/stellar/jquery.stellar.min.js') }}"></script>
-    <script src="{{ asset('libs/animate/animate-css.js') }}"></script>
-    <script src="{{ asset('libs/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('libs/magnific/jquery.magnific-popup.min.js') }}"></script>
-    <!-- /Slick -->
-    <script src="{{ asset('libs/slick-1.6.0/slick/slick.min.js') }}" defer></script>
-
-    <script src="{{ asset('js/common.js') }}"></script>
-
 </head>
 <body>
 <div class="wrapper">
@@ -53,5 +42,17 @@
 </div>
     @yield('footer')
 <div class="hidden"></div>
+
+<script src="{{ asset('libs/jquery/jquery-1.11.2.min.js') }}"></script>
+<script src="{{ asset('libs/modernizr/modernizr.js') }}"></script>
+<script src="{{ asset('libs/stellar/jquery.stellar.min.js') }}"></script>
+<script src="{{ asset('libs/animate/animate-css.js') }}"></script>
+<script src="{{ asset('libs/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ asset('libs/magnific/jquery.magnific-popup.min.js') }}"></script>
+<!-- /Slick -->
+<script src="{{ asset('libs/slick-1.6.0/slick/slick.min.js') }}" defer></script>
+
+<script src="{{ asset('js/common.js') }}"></script>
+
 </body>
 </html>

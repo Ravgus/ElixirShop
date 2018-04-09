@@ -78,6 +78,7 @@ class BasketController extends Controller
         return view('billing', [
             'categories' => $categories,
             'price' => $request->price,
+            'user' => Auth::user(),
         ]);
     }
 
@@ -104,8 +105,15 @@ class BasketController extends Controller
         $order = new Order();
         if (Auth::check()) {
             $order->user_id = Auth::id();
+        } else {
+            $order->user_data = [
+                $request->firstname,
+                $request->secondname,
+                $request->email,
+                $request->phone,
+                $request->address,
+            ];
         }
-        $order->email = $request->email;
         $order->order = $data;
         $order->save();
 
