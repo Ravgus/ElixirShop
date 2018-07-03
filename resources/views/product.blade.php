@@ -73,7 +73,6 @@
                                     </form>
                                     @auth
                                         <form id="add_to_wishlist" method="POST">
-                                            {{ csrf_field() }}
                                             <input type="hidden" name="id" value='{{ $product->id }}'>
                                             <button name="submit" style="
                                             background-color: rgba(29, 25, 39, 0.8);

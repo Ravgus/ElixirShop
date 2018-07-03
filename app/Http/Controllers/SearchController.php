@@ -39,7 +39,6 @@ class SearchController extends Controller
             $empty = 'Ничего не найдено';
         }
 
-        //dd($empty);
 
         /*//1
         $query = $request->query_body;

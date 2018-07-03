@@ -21,13 +21,15 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereUserId($value)
  * @mixin \Eloquent
+ * @property mixed|null $user_data
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereUserData($value)
  */
 class Order extends Model
 {
     //
     protected $casts = [
         'order' => 'array',
-        'user-data' => 'array',
+        'user_data' => 'array'
     ];
 
     public function user()
