@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Category;
-use Illuminate\Http\Request;
 use Route;
 
 class ArticlesControllers extends Controller

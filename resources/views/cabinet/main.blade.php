@@ -31,20 +31,6 @@
                         </a>
                         <img src="{{ asset('img/border_b.png') }}" alt="" class="border_b">
                     </li>
-                    {{--<li class="categories_item">
-                        <a href="{{ route('showBasket') }}" class="categories_link">
-                            <span class="categories_icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
-                            <span class="categories_text">Корзина</span>
-                        </a>
-                        <img src="{{ asset('img/border_b.png') }}" alt="" class="border_b">
-                    </li>
-                    <li class="categories_item active">
-                        <a href="{{ route('showInformation') }}" class="categories_link">
-                            <span class="categories_icon"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
-                            <span class="categories_text">Личные данные</span>
-                        </a>
-                        <img src="{{ asset('img/border_b.png') }}" alt="" class="border_b">
-                    </li>--}}
                 </ul>
             </aside>
         </div>
@@ -53,7 +39,7 @@
 
             <table>
                 <tr>
-                    <td>Имя</td>
+                    <td>ФИО</td>
                     <td>{{ Auth::user()->name }}</td>
                 </tr>
                 <tr>

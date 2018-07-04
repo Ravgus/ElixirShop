@@ -27,7 +27,7 @@
                         </div>
                         <ul>
                             <li><a href="{{ route('main') }}">Главная</a></li>
-                            <li><a href="#">Контакты</a></li>
+                            <li><a href="{{ route('contacts') }}">Контакты</a></li>
                         </ul>
                     </div>
                 </div>

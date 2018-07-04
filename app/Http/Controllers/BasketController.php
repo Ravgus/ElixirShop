@@ -18,17 +18,45 @@ class BasketController extends Controller
             'count' => 'required|integer|min:1',
         ]);
 
-        $json = [
-            'id' => $request->id,
-            'name' => $request->title,
-            'alias' => $request->alias,
-            'count' => $request->count,
+        if($request->session()->has('product_'.$request->id)) {
+            $json = json_decode($request->session()->get('product_'.$request->id));
+            $json->count += $request->count;
+        } else {
+            $json = [
+                'id' => $request->id,
+                /*'name' => $request->title,
+                'alias' => $request->alias,*/
+                'count' => $request->count,
             ];
+        }
 
         $json = json_encode($json);
         session(['product_'.$request->id => $json]);
 
         return $json;
+    }
+
+    public function changeProductCount(Request $request)
+    {
+        $this->validate($request, [
+            'count' => 'required|integer|min:1',
+        ]);
+
+        /*$json = json_decode($request->session()->get('product_'.$request->id));
+        $json->count = $request->count;
+
+        $json = json_encode($json);
+        session(['product_'.$request->id => $json]);
+
+        return $json;*/
+
+        $json = json_decode($request->session()->get('product_'.$request->id));
+        $json->count = $request->count;
+
+        $json = json_encode($json);
+        session(['product_'.$request->id => $json]);
+
+        return redirect()->back();
     }
 
     public function showBasket(Request $request)
@@ -73,22 +101,31 @@ class BasketController extends Controller
 
     public function showBilling(Request $request)
     {
-        $categories = Category::all();
+        if ($request->isMethod('get')) {
+            return redirect()->back();
+        } elseif ($request->isMethod('post')) {
+            $categories = Category::all();
 
-        return view('billing', [
-            'categories' => $categories,
-            'price' => $request->price,
-            'user' => Auth::user(),
-        ]);
+            return view('billing', [
+                'categories' => $categories,
+                'price' => $request->price,
+                'user' => Auth::user(),
+            ]);
+        } else {
+            abort(404);
+        }
     }
 
     public function makeBilling(Request $request)
     {
         $this->validate($request, [
-            'firstname' => 'required|string|max:255',
-            'secondname' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            /*'secondname' => 'required|string|max:255',*/
             'email' => 'required|string|email|max:255',
-            'phone' => 'required||string|max:32',
+            'phone' => array(
+                'required',
+                'regex:/^\+380[0-9]{9}$/'
+            ),
             'address' => 'required|string|max:255',
         ]);
 
@@ -96,19 +133,23 @@ class BasketController extends Controller
 
         foreach ($data as $key=>$value) {
             if(stripos($key, 'product_') !== false) {
-
+                $data[$key] = json_decode($value);
             } else {
                 unset($data[$key]);
             }
         }
+
+        $data['total'] = $request->total;
+        $data['payment_type'] = $request->payment_type;
 
         $order = new Order();
         if (Auth::check()) {
             $order->user_id = Auth::id();
         } else {
             $order->user_data = [
-                $request->firstname,
-                $request->secondname,
+                /*$request->firstname,
+                $request->secondname,*/
+                $request->name,
                 $request->email,
                 $request->phone,
                 $request->address,
@@ -121,7 +162,8 @@ class BasketController extends Controller
 
         $request->session()->flash('message', 'Спасибо за покупку! Наш менеджер в ближайшее время свяжется с вами');
 
-        return 'success';
+        return redirect()->route('main');
+        //return 'success';
     }
 
 }

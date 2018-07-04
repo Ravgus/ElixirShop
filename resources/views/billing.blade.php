@@ -21,49 +21,61 @@
 
                         <div class="title_reg">Оплата</div>
 
-                        <form method="POST" id="make_billing" {{--action="{{ route('makeBilling') }}"--}}>
+                        <form method="POST" id="make_billing" action="{{ route('makeBilling') }}">
 
                             {{ csrf_field() }}
 
                             <div class="form_wrap">
-                                <input id="firstname" type="text" class="field" name="firstname" value="@if(old('firstname')){{ old('firstname') }}@else{{ $user->name }}@endif" placeholder="Введите ваше имя" autofocus required>
+                                <input id="name" type="text" class="field" name="name"
+                                       value="@if(old('name')){{ old('name') }}@elseif(Auth::check()){{ $user->name }}@else{{null}}@endif"
+                                       placeholder="Введите ваше ФИО" autofocus required>
 
-                                    <span id="error_firstname" class="error_msg">
+                                <span id="error_name" class="error_msg">
                                     </span>
 
                             </div>
 
-                            <div class="form_wrap">
+                            {{--<div class="form_wrap">
                                 <input id="secondname" type="text" class="field" name="secondname" value="@if(old('secondname')){{ old('secondname') }}@endif" placeholder="Введите вашу фамилию" required>
 
                                     <span id="error_secondname" class="error_msg">
                                     </span>
 
-                            </div>
+                            </div>--}}
 
                             <div class="form_wrap">
-                                <input id="email" type="email" class="field" name="email" value="@if(old('email')){{ old('email') }}@else{{ $user->email }}@endif" placeholder="Введите ваш e-mail" required>
+                                <input id="email" type="email" class="field" name="email"
+                                       value="@if(old('email')){{ old('email') }}@elseif(Auth::check()){{ $user->email }}@else{{null}}@endif"
+                                       placeholder="Введите ваш e-mail" required>
 
-                                    <span id="error_email" class="error_msg">
+                                <span id="error_email" class="error_msg">
                                     </span>
 
                             </div>
 
                             <div class="form_wrap">
-                                <input id="phone" type="text" class="field" name="phone" value="@if(old('phone')){{ old('phone') }}@else{{ $user->phone }}@endif" placeholder="Введите ваш телефон" required>
+                                <input id="phone" type="text" class="field" name="phone"
+                                       value="@if(old('phone')){{ old('phone') }}@elseif(Auth::check()){{ $user->phone }}@else{{null}}@endif"
+                                       placeholder="Введите ваш телефон в формате +380ХХХХХХХХХ" required>
 
-                                    <span id="error_phone" class="error_msg">
+                                <span id="error_phone" class="error_msg">
                                     </span>
 
                             </div>
 
                             <div class="form_wrap">
-                                <input id="address" type="text" class="field" name="address" value="@if(old('address')){{ old('address') }}@else{{ $user->address }}@endif" placeholder="Введите адресс доставки" required>
+                                <input id="address" type="text" class="field" name="address"
+                                       value="@if(old('address')){{ old('address') }}@elseif(Auth::check()){{ $user->address }}@else{{null}}@endif"
+                                       placeholder="Введите адресс доставки" required>
 
-                                    <span id="error_address" class="error_msg">
+                                <span id="error_address" class="error_msg">
                                     </span>
 
                             </div>
+
+                            <input type="hidden" name="total" value="{{ $price }}">
+
+                            <br>
 
                             <div class="form_wrap">
                                 {{--<input id="payment" type="text" class="field" name="payment" value="{{ old('payment') }}" placeholder="Введите адресс доставки" required>--}}

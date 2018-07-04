@@ -41,9 +41,10 @@ Route::get('auth/{driver}/callback', ['as' => 'socialAuthCallback', 'uses' => 'A
 Route::post('/product/add', ['uses' => 'BasketController@addProduct', 'as' => 'addProduct']);
 
 Route::get('/basket', ['uses' => 'BasketController@showBasket', 'as' => 'showBasket']);
+Route::post('/basket', ['uses' => 'BasketController@changeProductCount', 'as' => 'changeProductCount']);
 /*Route::post('/basket', ['uses' => 'BasketController@showBasket', 'as' => 'showBasket']);*/
 
-Route::post('/billing', ['uses' => 'BasketController@showBilling', 'as' => 'showBilling']);
+Route::match(['get', 'post'], '/billing', ['uses' => 'BasketController@showBilling', 'as' => 'showBilling']);
 Route::post('/billing/make', ['uses' => 'BasketController@makeBilling', 'as' => 'makeBilling']);
 
 Auth::routes();
@@ -52,11 +53,15 @@ Route::namespace('Cabinet')->group(function () {
     Route::get('/home', ['uses' => 'UserCabinetController@index', 'as' => 'home']);
     Route::get('/wishlist', ['uses' => 'UserCabinetController@showWishList', 'as' => 'showWishList']);
     Route::get('/history', ['uses' => 'UserCabinetController@showHistory', 'as' => 'showHistory']);
-    /*Route::get('/information', ['uses' => 'UserCabinetController@information', 'as' => 'showInformation']);*/
 
     Route::post('/wishlist/add', ['uses' => 'UserCabinetController@addToWishList', 'as' => 'addToWishList']);
 
     Route::match(['get', 'post'], '/change/information', ['uses' => 'UserCabinetController@changeInformation', 'as' => 'changeInformation']);
     Route::match(['get', 'post'], '/change/email', ['uses' => 'UserCabinetController@changeEmail', 'as' => 'changeEmail']);
     Route::match(['get', 'post'], '/change/password', ['uses' => 'UserCabinetController@changePassword', 'as' => 'changePassword']);
+});
+
+
+Route::get('/1', function (\Illuminate\Support\Facades\Request $request) {
+    dd(session()->all());
 });

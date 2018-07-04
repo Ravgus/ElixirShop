@@ -155,8 +155,8 @@ $(".slider_products").slick({
                 data: $('#add_product').serialize(),
                 success: function(result){
                     console.log("success", result);
-                    var json = JSON.parse(result);
-                    alert('Добавлен товар '+json['name']+' в количестве '+json['count']+' штук');
+                    //var json = JSON.parse(result);
+                    alert('success');
                 },
                 error: function() {
                 	if(arguments[0]['status'] == 422) {
@@ -170,6 +170,30 @@ $(".slider_products").slick({
         });
     });
 
+    /*$(document).ready(function(){
+        $('[id^="product_"]').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/basket',
+                data: $('[id^="product_"]').serialize(),
+                success: function(result){
+                    console.log("success", result);
+                    alert('success');
+                },
+                error: function() {
+                    if(arguments[0]['status'] == 422) {
+                        alert('Выберите корректное число данного товара');
+                    } else {
+                        console.log("error", arguments);
+                        alert('Ошибка при изменении кол-ва товара');
+                    }
+                }
+            });
+        });
+    });*/
+
     $(document).ready(function(){
         $('#add_to_wishlist').on('submit', function(e){
             e.preventDefault();
@@ -179,21 +203,21 @@ $(".slider_products").slick({
                 url: '/wishlist',
                 data: $('#add_to_wishlist').serialize(),
                 success: function(result){
-                    console.log("success", result);
-                    if(result === "success")
+                    console.log(result);
+                    if(result === "added")
                         alert('Добавлено в список желаний');
-                    else if(result === "already")
-                        alert('Этот товар уже есть в вашем списке желаний');
+                    else if(result === "deleted")
+                        alert('Убрано из списка желаний');
                 },
-                error: function() {
-                	console.log("error", arguments);
+                error: function(result) {
+                	console.log("error", result);
                 	alert('Ошибка при добавлении товара в список желаний');
                 }
             });
         });
     });
 
-    $(document).ready(function(){
+    /*$(document).ready(function(){
         $('#make_billing').on('submit', function(e){
             e.preventDefault();
 
@@ -230,7 +254,7 @@ $(".slider_products").slick({
                 }
             });
         });
-    });
+    });*/
 	
 });
 

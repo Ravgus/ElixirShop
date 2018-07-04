@@ -20,7 +20,7 @@
                             @csrf
 
                             <div class="form_wrap">
-                                <input id="name" type="text" class="field" name="name" value="@if(old('name')){{ old('name') }}@else{{$user->name or ""}}@endif" placeholder="Введите новое имя" required autofocus>
+                                <input id="name" type="text" class="field" name="name" value="@if(old('name')){{ old('name') }}@else{{$user->name or ""}}@endif" placeholder="Введите новое ФИО" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="error_msg">
@@ -30,7 +30,7 @@
                             </div>
 
                             <div class="form_wrap">
-                                <input id="phone" type="text" class="field" name="phone" value="@if(old('phone')){{ old('phone') }}@else{{$user->phone or ""}}@endif" placeholder="Введите новый телефон" required>
+                                <input id="phone" type="text" class="field" name="phone" value="@if(old('phone')){{ old('phone') }}@else{{$user->phone or ""}}@endif" placeholder="Введите новый телефон в формате +380ХХХХХХХХХ" required>
 
                                 @if ($errors->has('phone'))
                                     <span class="error_msg">

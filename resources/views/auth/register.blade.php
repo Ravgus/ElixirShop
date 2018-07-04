@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="form_wrap">
-                                <input id="email" type="email" class="field" name="email" value="{{ old('email') }}" placeholder="Введите ваш е-мейл" required>
+                                <input id="email" type="email" class="field" name="email" value="{{ old('email') }}" placeholder="Введите ваш e-mail" required>
 
                                 @if ($errors->has('email'))
                                     <span class="error_msg">

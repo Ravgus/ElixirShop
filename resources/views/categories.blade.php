@@ -9,7 +9,6 @@
 @endsection
 
 @section('breadcrumbs')
-    {{--{{ Breadcrumbs::render('category', $alias, $current_category_name) }}--}}
     {{ Breadcrumbs::render('category', $current_category) }}
 
 @endsection

@@ -11,6 +11,7 @@ use App\User;
 use App\Order;
 use App\Product;
 use App\Wish;
+use Illuminate\Validation\Rule;
 
 class UserCabinetController extends Controller
 {
@@ -25,37 +26,38 @@ class UserCabinetController extends Controller
         return view('cabinet.main');
     }
 
-    public function wishList(Request $request)
+    public function addToWishList(Request $request)
     {
-        if ($request->isMethod('get')) {
+        $wishes = Wish::where('product_id', $request->id)->where('user_id', Auth::id())->get();
 
-            $empty = '';
-            $wishes = Wish::where('user_id', Auth::id())->with('product')->get();//paginate(5)
+        if ($wishes->isNotEmpty()) {
+            foreach ($wishes as $wish)
+                $wish->delete();
 
-            if($wishes->isEmpty())
-                $empty = 'Ваш список пуст';
-
-            return view('cabinet.wishlist', [
-                'wishes' => $wishes,
-                'empty'  => $empty,
-            ]);
-
-        } elseif ($request->isMethod('post')) {
-
-            if(Wish::where('product_id', $request->id)->first() != null) {
-                return 'already';
-            }
-
+            return 'deleted';
+        } else {
             $wish = new Wish();
             $wish->product_id = $request->id;
             $wish->user_id = Auth::id();
             $wish->save();
 
-            return 'success';
-
+            return 'added';
         }
+    }
 
-        return 'Unknown action';
+    public function showWishList()
+    {
+        $empty = '';
+        $wishes = Wish::where('user_id', Auth::id())->with('product')->get()/*paginate(5)*/
+        ;
+
+        if ($wishes->isEmpty())
+            $empty = '';
+
+        return view('cabinet.wishlist', [
+            'wishes' => $wishes,
+            'empty' => $empty,
+        ]);
     }
 
     public function showHistory()
@@ -64,12 +66,14 @@ class UserCabinetController extends Controller
         $orders = Order::where('user_id', Auth::id())->get();
         $histories = $this->orderDecode($orders);
 
-        if($orders->isEmpty())
-            $empty = 'Ваш список пуст';
+        /*if ($orders->isEmpty())
+            $empty = '';*/
+//dd($this->orderDecode($orders));
+        $this->orderDecode($orders);
 
         return view('cabinet.history', [
             'histories' => $histories,
-            'empty'  => $empty,
+            'empty' => $empty,
         ]);
     }
 
@@ -80,11 +84,14 @@ class UserCabinetController extends Controller
         } elseif ($request->isMethod('post')) {
             $this->validate($request, [
                 'name' => 'required|string|max:255',
-                'phone' => 'required||string|max:32',
+                'phone' => array(
+                    'required',
+                    'regex:/^\+380[0-9]{9}$/'
+                ),
                 'address' => 'required|string|max:255',
             ]);
 
-            $user = User::find(Auth::id());
+            $user = Auth::user();
             $user->name = $request->name;
             $user->phone = $request->phone;
             $user->address = $request->address;
@@ -100,10 +107,10 @@ class UserCabinetController extends Controller
             return view('cabinet.change_user_email', ['user' => Auth::user()]);
         } elseif ($request->isMethod('post')) {
             $this->validate($request, [
-                'email' => 'required|string|email|max:255|unique:users',
+                'email' => 'required|string|email|max:255|unique:users,email,' . Auth::id()
             ]);
 
-            $user = User::find(Auth::id());
+            $user = Auth::user();
             $user->email = $request->email;
             $user->save();
         }
@@ -121,7 +128,7 @@ class UserCabinetController extends Controller
                 'password_confirmation' => 'required|string|min:6',
             ]);
 
-            $user = User::find(Auth::id());
+            $user = Auth::user();
             $user->password = bcrypt($request->password);
             $user->save();
         }
@@ -131,14 +138,8 @@ class UserCabinetController extends Controller
 
     public function orderDecode($orders)
     {
-        $histories = [];
+        /*$histories = [];
         $price = 0;
-
-        /*foreach ($orders as $order) {
-            foreach ($order->order as $k => $v) {
-                $histories[$order->id][$k] = json_decode($v);
-            }
-        }*/
 
         foreach ($orders as $order) {
             foreach ($order->order as $k => $v) {
@@ -150,6 +151,30 @@ class UserCabinetController extends Controller
             $histories[$order->id]['price'] = $price;
             $price = 0;
         }
+
+        return $histories;*/
+
+        $histories = [];
+
+        foreach ($orders as $key1 => $order) {
+            $histories[$key1]['time'] = $order->updated_at;
+            foreach ($order->order as $key2 => $item) {
+                if ($key2 == 'total') {
+                    $histories[$key1]['total_price'] = $item;
+                } elseif ($key2 == 'payment_type') {
+                } else {
+                    $prod = Product::find($item['id']);
+                    $histories[$key1]['data'][] = [
+                        'name' => $prod->name,
+                        'category' => $prod->category->alias,
+                        'alias' => $prod->alias,
+                        'count' => $item['count']
+                    ];
+                }
+            }
+        }
+
+        //dd($histories);
 
         return $histories;
     }
